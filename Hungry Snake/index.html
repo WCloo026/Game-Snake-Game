@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake: Portal Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="stats-container">
+        <div class="stat-item">Score: <span id="scoreVal">0</span></div>
+        <div class="stat-item">Time: <span id="timerVal">0</span>s</div>
+        <div class="hunger-bar-wrapper">
+            <div id="hungerBar"></div>
+        </div>
+        <button id="muteBtn" title="Toggle Sound">🔊</button>
+    </div>
+
+    <div id="game-wrapper">
+        <div id="hunger-popup" class="hidden">5</div>
+        
+        <div id="overlay">
+            <h1 id="statusTitle">SNAKE GAME</h1>
+            <button id="startBtn">Play / Resume</button>
+        </div>
+        <canvas id="snakeGame" width="400" height="400"></canvas>
+    </div>
+
+    <div class="controls">
+        <button id="pauseBtn">Pause</button>
+        <button id="restartBtn">Restart</button>
+    </div>
+
+    <div class="hint" id="gameHint">Press Play, then any direction to start!</div>
+
+    <audio id="appleSound" src="assets/Apple.mp3"></audio>
+    <audio id="bgm" src="assets/Game BGM.mp3" loop></audio>
+    <audio id="gameOverSound" src="assets/Game Over.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
