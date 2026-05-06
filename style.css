@@ -1,4 +1,3 @@
-/* General Layout */
 body {
     display: flex;
     flex-direction: column;
@@ -8,28 +7,38 @@ body {
     margin: 0;
     background-color: #1a1a2e;
     color: #efefef;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     overflow: hidden;
 }
 
-/* Header Stats */
 .stats-container {
     display: flex;
     align-items: center;
-    gap: 20px;
-    font-size: 24px;
+    gap: 15px;
+    font-size: 20px;
     font-weight: 800;
     margin-bottom: 20px;
     width: 400px;
     justify-content: space-between;
 }
 
-/* Hunger Bar */
+#muteBtn {
+    background: #334155;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#muteBtn.is-muted { background: #e74c3c; }
+
 .hunger-bar-wrapper {
-    width: 150px;
-    height: 14px;
+    width: 120px;
+    height: 12px;
     background-color: #334155;
-    border-radius: 7px;
+    border-radius: 6px;
     overflow: hidden;
     border: 2px solid #334155;
 }
@@ -42,20 +51,14 @@ body {
     transition: transform 0.1s linear;
 }
 
-.low-hunger {
-    animation: bar-pulse 0.5s infinite;
-}
+.low-hunger { animation: bar-pulse 0.5s infinite; }
 
 @keyframes bar-pulse {
-    0% { background-color: #e74c3c; }
+    0%, 100% { background-color: #e74c3c; }
     50% { background-color: #ff7675; }
-    100% { background-color: #e74c3c; }
 }
 
-/* Game Wrapper & Pop-up */
-#game-wrapper {
-    position: relative;
-}
+#game-wrapper { position: relative; }
 
 #hunger-popup {
     position: absolute;
@@ -67,78 +70,52 @@ body {
     color: rgba(231, 76, 60, 0.8);
     z-index: 5;
     pointer-events: none;
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.animate-pop {
-    animation: pop-in 0.5s ease-out forwards;
-}
+.animate-pop { animation: pop-in 0.5s ease-out forwards; }
 
 @keyframes pop-in {
     0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
-    50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
     100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
 }
 
-canvas {
-    display: block;
-    background-color: #000;
-    border: 4px solid #4ecca3;
-}
+canvas { background-color: #000; border: 4px solid #4ecca3; display: block; }
 
-/* Overlays */
 #overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(26, 26, 46, 0.85);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(26, 26, 46, 0.9);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
     z-index: 10;
 }
 
 #overlay.hidden, .hidden { display: none !important; }
 
-#overlay h1 {
-    font-size: 40px;
-    margin: 0 0 20px 0;
-    color: #4ecca3;
-}
+.times-up-text { color: #ff4d4d !important; }
 
-.times-up-text {
-    color: #ff4d4d !important;
-}
-
-/* Buttons */
-.controls {
-    margin-top: 25px;
-    display: flex;
-    gap: 15px;
-}
+.controls { margin-top: 20px; display: flex; gap: 10px; }
 
 button {
-    padding: 12px 24px;
-    font-size: 18px;
+    padding: 10px 20px;
     font-weight: 800;
     cursor: pointer;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     text-transform: uppercase;
-    transition: transform 0.1s;
 }
 
-button:active { transform: scale(0.95); }
-
-#startBtn { background-color: #4ecca3; color: #1a1a2e; }
-#pauseBtn { background-color: #f39c12; color: #fff; }
-#restartBtn { background-color: #e74c3c; color: #fff; }
-
-.hint {
-    margin-top: 20px;
-    color: #94a3b8;
-    font-size: 14px;
+#startBtn.restart-mode {
+    background: #e74c3c;
+    color: white;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
 }
+
+#overlay h1.times-up-text {
+    color: #e74c3c;
+}
+
+#startBtn { background: #4ecca3; color: #1a1a2e; }
+#pauseBtn { background: #f39c12; color: #fff; }
+#restartBtn { background: #e74c3c; color: #fff; }
+
+.hint { margin-top: 15px; color: #94a3b8; font-size: 13px; }
